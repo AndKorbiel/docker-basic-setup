@@ -6,7 +6,7 @@ async function getDataFromService1() {
   try {
     const data = await fetch('http://service1:9001/get-data');
     const json = await data.json();
-    console.log('json');
+    console.log('resp from service1');
     console.log(json);
     return json;
   } catch (e) {
@@ -16,9 +16,10 @@ async function getDataFromService1() {
 
 async function getDataFromService2() {
   try {
+    // IP address of service2 might vary based on network
     const data = await fetch('http://172.18.0.1:5001/get-data2');
     const json = await data.json();
-    console.log('json');
+    console.log('resp from service2');
     console.log(json);
     return json;
   } catch (e) {
