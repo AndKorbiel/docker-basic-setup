@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  client:
+    build: './client'
+    volumes:
+      - ./client:/home/node/app
+      - /home/node/app/node_modules
+    ports:
+      - '8000:8080'
+    depends_on:
+      - service1
+  service1:
+    build: './service1'
+    volumes:
+      - ./service1:/home/node/app
+      - /home/node/app/node_modules
+    expose:
+      - '9001'
